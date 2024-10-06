@@ -21,11 +21,13 @@ final class SharedLocalNotificationENV: ObservableObject {
 
 // MARK: - Actions
 extension SharedLocalNotificationENV {
-    func requestPermission() async {
-        let granted = await SharedLocalNotificationManager.requestAuthPermission(options: options)
-        
-        await MainActor.run {
-            permissionGranted = granted
+    func requestPermission() {
+        Task {
+            let granted = await SharedLocalNotificationManager.requestAuthPermission(options: options)
+            
+            await MainActor.run {
+                permissionGranted = granted
+            }
         }
     }
 }
