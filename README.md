@@ -2,13 +2,9 @@
 # NnLocalNotificationKit
 
 [![Swift](https://img.shields.io/badge/Swift-5.9-orange.svg)](https://swift.org) 
-[![Platform](https://img.shields.io/badge/Platform-iOS_15+-blue.svg)](https://developer.apple.com/ios/) 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
-[![Version](https://img.shields.io/badge/Version-0.5.0-green.svg)](https://github.com/nikolainobadi/NnLocalNotificationKit/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) 
 
 A lightweight Swift package that simplifies managing local notifications on iOS, including scheduling, retrieving, and handling permissions.
-
-**GitHub Repository:** [NnLocalNotificationKit](https://github.com/nikolainobadi/NnLocalNotificationKit)
 
 ## Overview
 
