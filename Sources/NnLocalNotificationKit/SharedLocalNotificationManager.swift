@@ -12,11 +12,20 @@ public enum SharedLocalNotificationManager {
 }
 
 
-// MARK: - Auth
+// MARK: - Permissions
 public extension SharedLocalNotificationManager {
     @discardableResult
     static func requestAuthPermission(options: UNAuthorizationOptions) async -> Bool {
         return (try? await notifCenter.requestAuthorization(options: options)) ?? false
+    }
+    
+    /// calls completion on main thread
+    static func checkForPermissionsWithoutRequest(completion: @escaping (UNAuthorizationStatus) -> Void) {
+        notifCenter.getNotificationSettings { settings in
+            DispatchQueue.main.async {
+                completion(settings.authorizationStatus)
+            }
+        }
     }
 }
 
@@ -29,6 +38,10 @@ public extension SharedLocalNotificationManager {
         let request = makeRequest(id: data.id, content: content, trigger: trigger)
         
         try await notifCenter.add(request)
+    }
+    
+    static func cancelNotification(identifiers: [String]) {
+        notifCenter.removePendingNotificationRequests(withIdentifiers: identifiers)
     }
 }
 
